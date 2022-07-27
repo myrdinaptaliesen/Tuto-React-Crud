@@ -8,10 +8,6 @@ import AddPlayer from './pages/players/AddPlayer';
 import EditPlayer from './pages/players/EditPlayer';
 import Home from "./pages/Home";
 
-
-
-
-
 function App() {
 
   return (

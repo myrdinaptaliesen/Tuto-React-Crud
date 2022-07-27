@@ -1,7 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -20,20 +18,22 @@ const Menu = () => {
             >
               <Nav.Link href="#action1">Home</Nav.Link>
               <NavDropdown title="Clubs" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/clubs/add">Créer un nouveau club</NavDropdown.Item>
+                <NavDropdown.Item href="/clubs/add">
+                  Créer un nouveau club
+                </NavDropdown.Item>
                 <NavDropdown.Item href="/clubs">
                   Liste des clubs
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Joueurs" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/players/add">Créer un nouveau joueur</NavDropdown.Item>
+                <NavDropdown.Item href="/players/add">
+                  Créer un nouveau joueur
+                </NavDropdown.Item>
                 <NavDropdown.Item href="/players">
                   Liste des joueurs
                 </NavDropdown.Item>
               </NavDropdown>
-              
             </Nav>
-            
           </Navbar.Collapse>
         </Container>
       </Navbar>
