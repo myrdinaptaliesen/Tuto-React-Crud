@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Menu from "../../components/Menu";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Clubs = () => {
   const [clubs, setClubs] = useState([]);
@@ -44,6 +45,9 @@ const Clubs = () => {
                   />
                 </td>
                 <td>
+                <Link to={`/clubs/edit/${club.id}`} className='btn btn-success me-2'>
+                    Edit
+                </Link>
                   <Button
                     variant="danger"
                     onClick={() => {
