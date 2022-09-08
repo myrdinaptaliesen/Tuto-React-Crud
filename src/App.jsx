@@ -7,6 +7,8 @@ import Players from './pages/players/Players';
 import AddPlayer from './pages/players/AddPlayer';
 import EditPlayer from './pages/players/EditPlayer';
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Home />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/register" element={<Register />} />
     <Route path="/clubs" element={<Clubs />} />
     <Route path="/clubs/add" element={<AddClub />} />
     <Route path="/clubs/edit/:club" element={<EditClub />} />
