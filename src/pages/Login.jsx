@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
-import LoginForm from "../components/LoginForm";
-import Menu from "../components/Menu";
+import LoginForm from "../components/Auth/LoginForm";
+import Menu from "../components/Layouts/Menu";
 
 function Login() {
   return (

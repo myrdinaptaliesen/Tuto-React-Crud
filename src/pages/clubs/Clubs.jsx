@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import Menu from "../../components/Menu";
+import Menu from "../../components/Layouts/Menu";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
@@ -22,6 +22,7 @@ const Clubs = () => {
     axios.delete(`http://localhost:8000/api/clubs/${id}`).then(displayClubs);
   };
 
+  console.log(localStorage.getItem('access_token'));
   return (
     <div>
       <Menu />

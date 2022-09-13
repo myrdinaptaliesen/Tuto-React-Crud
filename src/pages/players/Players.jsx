@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import Menu from "../../components/Menu";
+import Menu from "../../components/Layouts/Menu";
 import axios from "axios";
 import { Link } from "react-router-dom";
 

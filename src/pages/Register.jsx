@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
-import RegisterForm from "../components/RegisterForm";
-import Menu from "../components/Menu";
+import RegisterForm from "../components/Auth/RegisterForm";
+import Menu from "../components/Layouts/Menu";
 
 function Register() {
   return (

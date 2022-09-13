@@ -10,6 +10,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+
+const token = localStorage.getItem("access_token");
+console.log(token);
 function App() {
 
   return (
@@ -19,7 +22,8 @@ function App() {
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
-    <Route path="/clubs" element={<Clubs />} />
+    <Route path="/clubs" element={token ? <Clubs/> : <Login/> }></Route>
+    {/* <Route path="/clubs" element={<Clubs />} /> */}
     <Route path="/clubs/add" element={<AddClub />} />
     <Route path="/clubs/edit/:club" element={<EditClub />} />
     <Route path="/players" element={<Players />} />

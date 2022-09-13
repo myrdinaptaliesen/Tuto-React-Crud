@@ -7,13 +7,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiOutlineEye, AiTwotoneEyeInvisible } from "react-icons/ai";
 
-
 function LoginForm() {
   document.title = "Connexion au site";
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
-  
+
   const [errMessage, setErrMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -28,42 +27,25 @@ function LoginForm() {
   const password = watch("password", "");
   const [toast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState({});
-  
 
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.pathname || "/"; //travail sur la redirection
 
   let login = async () => {
-
     try {
       let formData = new FormData();
-      formData.append('email', email)
-      formData.append('password', password)
+      formData.append("email", email);
+      formData.append("password", password);
       let res = await axios.post("http://127.0.0.1:8000/api/login/", formData, {
-        "headers" : { "Content-Type":"multipart/form-data" }
+        headers: { "Content-Type": "multipart/form-data" },
       });
       if (res.status === 200) {
-          localStorage.setItem("access_token", res.data.token)
-    
+        localStorage.setItem("access_token", res.data.token);
 
-          navigate('/home', { replace: true });
-      } // else {
-//         setToastMessage({message: "Une erreur est survenue", severity: "error"});
-//         setShowToast(true);
-//     }
-} catch (err) {
-//     let errors = err.response.data;
-//     if (errors.errors){
-//         for (const [key, value] of Object.entries(errors.errors)) {
-//             setToastMessage({message: value, severity: "error"});
-//             setShowToast(true);
-//         }
-//     } else if (errors.message){
-//         setToastMessage({message: errors.message, severity: "error"});
-//         setShowToast(true);
-//     }
-}
+        navigate("/home", { replace: true });
+      }
+    } catch (err) {}
   };
 
   const handleClickShowPassword = () => {
@@ -79,42 +61,40 @@ function LoginForm() {
       <h3 className="Auth-form-title">Connexion</h3>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Adresse mail</Form.Label>
-        <Form.Control 
-        type="email" 
-        placeholder="johndoe@unknown.fr"
-        {...register("email", {
-          required: "Mail obligatoire", 
-        })}
-         />
-         {errors.email && (
-            <Form.Text className="text-danger">
-              {errors.email.message}
-            </Form.Text>
-          )}
+        <Form.Control
+          type="email"
+          placeholder="johndoe@unknown.fr"
+          {...register("email", {
+            required: "Mail obligatoire",
+          })}
+        />
+        {errors.email && (
+          <Form.Text className="text-danger">{errors.email.message}</Form.Text>
+        )}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Mot de passe</Form.Label>
-          <InputGroup>
-            <InputGroup.Text>
-              <i onClick={handleClickShowPassword}>
-                {showPassword ? <AiOutlineEye /> : <AiTwotoneEyeInvisible />}
-              </i>
-            </InputGroup.Text>
-            <Form.Control
-              type={showPassword ? "text" : "password"}
-              placeholder="Mot de passe"
-              {...register("password", {
-                required: "Mot de passe est obligatoire", 
-              })}
-            />
-          </InputGroup>
-           {errors.password && ( 
-            <Form.Text className="text-danger">
-               {errors.password.message} 
-            </Form.Text>
-           )} 
-        </Form.Group>
+        <Form.Label>Mot de passe</Form.Label>
+        <InputGroup>
+          <InputGroup.Text>
+            <i onClick={handleClickShowPassword}>
+              {showPassword ? <AiOutlineEye /> : <AiTwotoneEyeInvisible />}
+            </i>
+          </InputGroup.Text>
+          <Form.Control
+            type={showPassword ? "text" : "password"}
+            placeholder="Mot de passe"
+            {...register("password", {
+              required: "Mot de passe est obligatoire",
+            })}
+          />
+        </InputGroup>
+        {errors.password && (
+          <Form.Text className="text-danger">
+            {errors.password.message}
+          </Form.Text>
+        )}
+      </Form.Group>
 
       <Button variant="primary" type="submit">
         Se connecter
